@@ -1,0 +1,43 @@
+body{
+    font-family: 'Slabo 27px', serif;
+    background-image: url("images/back.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn{
+    color: black;
+}
+
+.playerCard{
+    margin: 1rem;
+} 
+
+.resultBack{
+      background-color: rgba(40, 53, 73, .8); 
+       /* padding: 0rem 0 5rem 0;  */
+       color: white;
+       padding: 0 2rem 0 0;
+}
+
+.roster-head{
+    color:white;
+}
+
+ .myTeam{
+    margin: 12rem 0 0 0;
+    background-color: rgba(40, 53, 73, .8); 
+ }  
+
+.rosterImage{
+    min-width: 7rem;
+    margin: 0 auto;
+}
+
+ .playerResult{
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    padding: 1rem;
+    margin: 3rem;
+ }  
