@@ -39,7 +39,7 @@ function PlayerService() {
         var endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
         var apiUrl = url + encodeURIComponent(endpointUri);
 
-        $.getJSON(endpointUri, function (data) {
+        $.getJSON(apiUrl, function (data) {
             playersData = data.body.players;
             console.log('Player Data Ready')
             console.log('Writing Player Data to localStorage')
