@@ -39,7 +39,7 @@ function PlayerService() {
         var endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
         var apiUrl = url + encodeURIComponent(endpointUri);
 
-        $.getJSON(apiUrl, function (data) {
+        $.getJSON(endpointUri, function (data) {
             playersData = data.body.players;
             console.log('Player Data Ready')
             console.log('Writing Player Data to localStorage')
@@ -67,14 +67,19 @@ function PlayerService() {
     }
 
     function addToRoster(id) {
+        var count = 0
         var players = playersData
         for (var i = 0; i < players.length; i++) {
             var player = players[i];
-            if (player.id == id){
-                if (myRoster.indexOf(player) == -1) {
-                    if(myRoster.includes(player)){
-                        return
+            if (player.id == id) {
+                myRoster.forEach((rosterPlayer) => {
+                    if (myRoster.indexOf(player) == -1) {
+                        if (rosterPlayer.position == player.position) {
+                            count++
+                        }
                     }
+                });
+                if (count <= 0) {
                     myRoster.push(player)
                 }
             }

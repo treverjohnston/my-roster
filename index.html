@@ -21,10 +21,10 @@
         <div class="row">
             <div class="col-xs-6">
                 <div class="row">
-                    <div class="player-roster col-xs-offset-2 col-xs-2 text-center">
+                    <div class="player-roster col-xs-3 text-center">
                         <form class="form-inline" onsubmit="app.controllers.playerController.search(event)">
                             <div class="form-group">
-                                <input id="search-text" type="text" class="form-control" name="search" placeholder="Search" >
+                                <input id="search-text" type="text" class="form-control" name="search" placeholder="Search">
                                 <button id="submit-button" class="btn btn-default" type="submit">Search</button>
                             </div>
                         </form>
@@ -33,6 +33,7 @@
                 <div class="resultBack">
                     <div class="row">
                         <div class="results text-center" id="results">
+                            <h2>Search for a player above via Name, Position, or Shortened City Name (ex. Den)</h2>
                         </div>
                     </div>
                 </div>
