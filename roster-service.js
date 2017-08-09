@@ -35,7 +35,7 @@ function PlayerService() {
             //this will prevent the code below from ever executing
         }
 
-        var url = "http://bcw-getter.herokuapp.com/?url=";
+        var url = "//bcw-getter.herokuapp.com/?url=";
         var endpointUri = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
         var apiUrl = url + encodeURIComponent(endpointUri);
 
@@ -67,19 +67,14 @@ function PlayerService() {
     }
 
     function addToRoster(id) {
-        var count = 0
         var players = playersData
         for (var i = 0; i < players.length; i++) {
             var player = players[i];
-            if (player.id == id) {
-                myRoster.forEach((rosterPlayer) => {
-                    if (myRoster.indexOf(player) == -1) {
-                        if (rosterPlayer.position == player.position) {
-                            count++
-                        }
+            if (player.id == id){
+                if (myRoster.indexOf(player) == -1) {
+                    if(myRoster.includes(player)){
+                        return
                     }
-                });
-                if (count <= 0) {
                     myRoster.push(player)
                 }
             }
