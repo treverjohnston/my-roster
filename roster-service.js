@@ -66,16 +66,47 @@ function PlayerService() {
         cb(results)
     }
 
+    // function addToRoster(id) {
+    //     var count = 0
+    //     var players = playersData
+    //     for (var i = 0; i < players.length; i++) {
+    //         var player = players[i];
+    //         if (player.id == id) {
+    //             myRoster.forEach((rosterPlayer) => {
+    //                 if (myRoster.indexOf(player) == -1) {
+    //                     if (rosterPlayer.position == player.position) {
+    //                         count++
+    //                     }
+    //                 }
+    //                 if (count <= 0) {
+    //                     myRoster.push(player)
+    //                 }
+    //             });
+    //         }
+    //     }
+    //     saveRoster()
+    // }
+
     function addToRoster(id) {
         var players = playersData
+        var count = 0
         for (var i = 0; i < players.length; i++) {
             var player = players[i];
-            if (player.id == id){
+            if (player.id == id) {
                 if (myRoster.indexOf(player) == -1) {
-                    if(myRoster.includes(player)){
+                    if (myRoster.includes(player)) {
                         return
                     }
-                    myRoster.push(player)
+                    myRoster.forEach((rosterPlayer) => {
+                        if (myRoster.indexOf(player) == -1) {
+                            if (rosterPlayer.position == player.position) {
+                                return count++
+                            }
+                        }
+                    })
+                    if (count <= 0) {
+                        myRoster.push(player)
+                    }
                 }
             }
         }
